@@ -24,8 +24,8 @@ SELECT album.album_name, subquery.track_name, subquery.time FROM
 JOIN album ON subquery.artist_id = album.artist_id AND subquery.album_id = album.album_id;
 
 -- Command Five
-SELECT album.album_name, subquery.track_name, subquery.time FROM
-(SELECT wasplayedat.artist_id, wasplayedat.album_id, track.track_name, track.time
+SELECT album.album_name, subquery.track_name, subquery.time, subquery.played FROM
+(SELECT wasplayedat.artist_id, wasplayedat.album_id, wasplayedat.played, track.track_name, track.time
   FROM track JOIN wasplayedat ON track.artist_id = wasplayedat.artist_id
   AND track.album_id = wasplayedat.album_id
   AND track.track_id = wasplayedat.track_id) AS subquery
